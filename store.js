@@ -61,7 +61,8 @@ function addToCart_clicked(event) {
     var price = BakeryItem.getElementsByClassName("price")[0].innerText;
     var image = BakeryItem.getElementsByClassName("item-image")[0].src;
     console.log(title, price, image);
-    addItemToCart(title, price, image)
+    addItemToCart(title, price, image);
+    update_total();
 }
 
 /**Function to add item to cart */
@@ -83,6 +84,7 @@ function addItemToCart(title, price, image){
     </div>`;
     cartRow.innerHTML = cartRowContents;
     cartItems.append(cartRow);
+    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem);
 }
 
 /*******************************************************************************/

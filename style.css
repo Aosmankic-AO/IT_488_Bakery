@@ -291,3 +291,19 @@ a:link { text-decoration: none; }
   margin: 0 auto;
   padding: 0 1.5em;
 }
+
+/** Membership Page **/
+
+.membership {
+  text-align: center;
+}
+
+.form_group {
+  padding: 5px;
+}
+
+input {
+
+}
+
+  

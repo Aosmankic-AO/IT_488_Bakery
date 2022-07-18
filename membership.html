@@ -31,33 +31,31 @@
 
 
     <!--Bakery Section -->
-    <div class="about">
-        <h2 class="w3-wide">THE BAKERY</h2>
-        <p class="w3-opacity"><i>If eating cake is wrong, then I don't want to be right.</i></p>
-        <p>Opened in 1965, The Bakery has been in our family for generations. Lorem ipsum dolor sit amet, 
-          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-          Aliquam malesuada bibendum arcu vitae elementum curabitur. Vitae auctor eu augue ut lectus arcu 
-          bibendum at. A diam sollicitudin tempor id eu. Orci nulla pellentesque dignissim enim sit amet 
-          venenatis urna. Diam quis enim lobortis scelerisque fermentum dui faucibus. Ullamcorper velit 
-          sed ullamcorper morbi tincidunt ornare massa eget egestas. Amet aliquam id diam maecenas 
-          ultricies. Non sodales neque sodales ut etiam sit. Eget arcu dictum varius duis at consectetur. 
-          Ante metus dictum at tempor. Augue mauris augue neque gravida in fermentum et. 
-          Praesent elementum facilisis leo vel fringilla est. Vitae purus faucibus ornare 
-          suspendisse sed nisi lacus. In iaculis nunc sed augue lacus viverra vitae congue eu. 
-          Ut tristique et egestas quis ipsum suspendisse ultrices gravida.</p>
-        <div class="w3-row w3-padding-32">
-          <div>
-            <img src="imgs\7.jpg" class="about-img">
-          </div>
-        </div>
+    <div class="membership">
+        <h2 >Join our Membership for disounts!</h2>
+        <h2>Sign Up</h2>    
+        <form action="connection.php" method = "POST">    
+                <div class = "form_group">    
+                    <label for="firstName">First Name:</label>    
+                    <input type = "text" class = "form-control" name = "firstName"/>    
+                </div>    
+                <div class = "form_group">    
+                    <label for="middleName">Middle Name:</label>    
+                    <input type = "text" class = "form-control" name = "middleName"/>    
+                </div>    
+                <div class = "form_group">    
+                    <label for="lastName">Last Name:</label>    
+                    <input type = "text" class = "form-control" name = "lastName"/>    
+                </div>    
+                <div class = "form_group">    
+                    <label for="favoritePastry">Favorite Pastry:</label>    
+                    <input type = "text" class = "form-control" name = "favoritePastry"/>    
+                </div> 
+                <input type="submit" name='submit' class="btn btn-primary">   
+        </form>    
       </div>
     
 
-
-
- <div>
-    <h1>Please visit our store to see more!</h1>
- </div>
 
     <!-- FOOTER -->
     <footer>

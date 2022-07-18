@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5500,
+            "driver": "MySQL",
+            "username": "root",
+            "database": "bakery",
+            "name": "MySQL",
+            "password": ""
+        }
+    ]
+}
