@@ -31,7 +31,12 @@ var quantity_user_input = document.getElementsByClassName("cart-quantity-input")
     button.addEventListener("click", addToCart_clicked)
   }
 
+document.getElementsByClassName("btn-purchase")[0].addEventListener('click', purchaseClicked);
+
+
 }
+/*******************************************************************************/
+/*******************************************************************************/
 /*******************************************************************************/
 /** FUNCTIONS **/
 
@@ -72,6 +77,7 @@ function addItemToCart(title, price, image){
     cartRow.innerText = title;
     cartRow.classList.add("cart-row")
     var cartItems = document.getElementsByClassName("cart-items")[0];
+
     var cartRowContents =`
     <div class="cart-item cart-column">
         <img class="cart-item-image" src="${image}" width="100" height="100">
@@ -80,13 +86,27 @@ function addItemToCart(title, price, image){
         <span class="cart-price cart-column">${price}</span>
     <div class="cart-quantity cart-column">
         <input class="cart-quantity-input" type="number" value="1">
-        <button class="btn btn-danger" type="button">REMOVE</button>
+        <button class="btn  btn-danger" type="button">REMOVE</button>
     </div>`;
     cartRow.innerHTML = cartRowContents;
     cartItems.append(cartRow);
     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem);
+    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
 }
 
+/**Function to purchase / checkout */
+function purchaseClicked() {
+    alert('Thank you for shopping with The Bakery!');
+    var cartItems = document.getElementsByClassName("cart-items")[0];
+    // Keep looping until the cart rows are empty (have no children)
+    while(cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild);
+    }
+    update_total();
+}
+
+/*******************************************************************************/
+/*******************************************************************************/
 /*******************************************************************************/
 
 /**Total Update*/
@@ -104,9 +124,10 @@ function update_total() {
         // replace any inner text with dollar signs to be nothing
         // parse float will turn any string into a float (numbers with decimal points)
         var price = parseFloat(price_element.innerText.replace("$", ""));
-        console.log(price);
+        console.log(price_element);
+        console.log(quantity_element);
         var quantity = quantity_element.value;
-        total = total + price * quantity;
+        total = total + (price * quantity);
         
     }
     total = Math.round(total * 100) / 100

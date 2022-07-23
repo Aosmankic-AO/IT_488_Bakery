@@ -74,7 +74,11 @@ a:link { text-decoration: none; }
   /* Hide the images by default */
   .mySlides {
     display: none;
+    width: 50%;
+    margin: auto;
   }
+  
+ 
   
   /* Add a pointer when hovering over the thumbnail images */
   .cursor {
@@ -203,6 +207,21 @@ a:link { text-decoration: none; }
   font-size: 18px;
 }
 
+.btn-danger {
+  border: none;
+  outline: 0;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 15px;
+}
+
+.btn-danger:hover {
+  color: red;
+}
+
 .card button:hover {
   opacity: 0.7;
 }
@@ -301,9 +320,4 @@ a:link { text-decoration: none; }
 .form_group {
   padding: 5px;
 }
-
-input {
-
-}
-
-  
+ 
