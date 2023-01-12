@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+body {
+    margin: 0;
+    background-color: rgb(135, 124, 110);
+    justify-content: center;
+    align-items: center;
+    font-family: kanit;
+}
+
+/* Navbar and Title */
+
+#title {
+ color: white;
+ text-align: center;
+ font-size: 50px;
+ margin-top: 0;
+}
+
+.topnavbar {
+  text-align: center;
+}
+
+
+.topnavbar a {
+  color: #000000;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.topnavbar a:hover {
+  color: brown;
+}
+
+
+.footer {
+    background-color: brown;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+
+
+
+/* Slideshow */
+.slides-container {
+  padding-top: 50px;
+  text-align: center;
+}
+
+
+
+/* Footer */
+
+.subscribe-btn {
+  box-shadow: '0 5px 15px rgba(0, 0, 0, 0.3)';
+  font-weight: bold;
+  border-radius: 30px;
+  margin: 10px;
+}
+
+.links {
+  text-decoration: none;
+}
