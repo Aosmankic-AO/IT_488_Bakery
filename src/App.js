@@ -1,7 +1,7 @@
 import React from 'react'
 import Home from './pages/home/Home'
 import About from './pages/about/About.jsx'
-import Order from './pages/membership/Membership.jsx'
+import Order from './pages/order/Order.jsx'
 import Membership from './pages/membership/Membership.jsx'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

@@ -48,15 +48,6 @@ body {
 
 
 /* Slideshow */
-.slides-container {
-  padding-top: 50px;
-  text-align: center;
-}
-
-.slide-imgs {
-  width: 50%;
-}
-
 .each-slide-effect > div {
   display: flex;
   align-items: center;
@@ -71,6 +62,12 @@ body {
   background: #efefef;
   text-align: center;
 }
+
+.slides-container {
+
+}
+
+/* Slideshow */
 
 
 /* Footer */
