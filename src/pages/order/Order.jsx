@@ -1,15 +1,18 @@
-import React from "react";
 import "./order.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import BasicTable from "../../components/Menu";
+import ItemList from "../../components/Menu";
+import * as React from 'react';
+import Cart from "../../components/Cart";
+
 
 
 const Order = () => {
     return (
       <div className="orderContainer">
         <Header />
-        <BasicTable />
+        <ItemList />
+        <Cart />
         <Footer />
       </div>
     );

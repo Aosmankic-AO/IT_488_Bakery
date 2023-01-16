@@ -45,31 +45,6 @@ body {
 }
 
 
-
-
-/* Slideshow */
-.each-slide-effect > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  height: 350px;
-}
-
-.each-slide-effect span {
-  padding: 20px;
-  font-size: 20px;
-  background: #efefef;
-  text-align: center;
-}
-
-.slides-container {
-
-}
-
-/* Slideshow */
-
-
 /* Footer */
 
 .subscribe-btn {
@@ -79,6 +54,7 @@ body {
   margin: 10px;
 }
 
-.links {
+.instagram, .facebook {
   text-decoration: none;
+  border-style: dashed;
 }
