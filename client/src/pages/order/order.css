@@ -1,6 +1,6 @@
 /* Order */
 
-.order-menu-container {
+.order-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,63 +11,84 @@
   overflow: auto; 
   }
 
-  .menu-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 80%;
-  }
-
-  .menu-list-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px;
-  margin-bottom: 8px;
-  }
-
-  .add-cart-btn {
-      padding: 8px 16px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    
-  }
-
-  .add-cart-btn:hover {
-    background-color: #3e8e41;
+  .menu h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
   }
   
-  /* Cart */
-
-  .cart-list {
+  .menu ul {
     list-style: none;
     margin: 0;
     padding: 0;
   }
   
-  .cart-list-item {
-    padding: 8px;
-    padding-right: 10px;
-    margin-bottom: 8px;
+  .menu li {
+    margin-bottom: 10px;
   }
-
-
-  /** Remove Button **/
-
-  .remove-btn {
-    padding: 8px 16px;
-    background-color: #f44336;
+  
+  .menu-btn {
+    background-color: #4CAF50;
     color: white;
+    padding: 5px 5px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
-    margin: 12px;
+    margin-left: 10px;
+  }
+  
+  .menu-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .cart {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ae8a69;
+    border: #000000;
+    border-style:ridge;
+    border-radius: 10px;
+
+  }
+  
+  .cart h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .cart ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .cart li {
+    margin-bottom: 10px;
+  }
+  
+  .cart button {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 5px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .cart button:hover {
+    background-color: #da190b;
+  }
+  
+  .checkout-btn {
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .checkout-btn:hover {
+    background-color: #45a049;
   }
 
-  .remove-btn:hover {
-    background-color: #d32f2f;
-
-  }

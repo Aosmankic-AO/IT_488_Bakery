@@ -1,60 +1,86 @@
 import React, { useState } from 'react';
 
-
-
+  
 const Menu = () => {
 
-  const [items, setItems] = useState([
-    { name: '1 Dozen Doughnuts', price: 20 },
-    { name: '1/2 Dozen Doughnuts', price: 10 },
-    { name: 'Whole Cake', price: 30 },
-    { name: 'Half Cake', price: 20 },
-    { name: 'Whole Cake', price: 30 },
-  ]);
+  const menuItems = [
+    { id: 1, name: '1 Dozen Doughnuts', price: 9.99 },
+    { id: 2, name: 'Half Dozen Doughnuts', price: 5.99 },
+    { id: 3, name: 'Half Dozen Bagels', price: 7.99 },
+    // Add more items here
+  ];
+  
 
   const [cart, setCart] = useState([]);
-  console.log(cart)
-  
-  // When add to cart is clicked
-  const handleAddToCart = (item) => {
-    setCart([...cart, item]);
-    let addedItem = cart.find(i => i.name);
-    
-      
-  }
 
-  //Remove item from cart
-  const handleRemoveFromCart = (item) => {
+  const handleAddToCart = item => {
+    //check if the item already exists in cart by id
+    const existingItem = cart.find(i => i.id === item.id);
+    if (existingItem) {
+      existingItem.quantity += 1;
+      setCart([...cart]);
+    } else {
+      setCart([...cart, { ...item, quantity: 1 }]);
+    }
+  };
+
+  const handleRemoveFromCart = item => {
     setCart(cart.filter(i => i !== item));
+  };
+
+  const handleCheckout = async () => {
+    console.log(cart)
+    try {
+      const response = await fetch('http://localhost:3001/api/orders', {
+          method: 'POST',
+          body: JSON.stringify(cart.name),
+          headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await response.json();
+      console.log(data);
+  } catch (err) {
+      console.error(err);
   }
+  };
+ 
 
   // Get the total cost of items in cart
   const totalCost = cart.reduce((total, item) => total + item.price, 0);
 
 
   return (
-    <div className='order-menu-container'>
+    <div className='order-container'>
+
+    <div className='menu'>
     <h2>Menu</h2>
-    <ul className='menu-list'>
-      {items.map((item, index) => (
-        <li key={index} className="menu-list-item">
-          {item.name} - ${item.price}
-          <button onClick={() => handleAddToCart(item)} className="add-cart-btn">Add to cart</button>
-        </li>
-      ))}
-    </ul>
+    
+    <ul>
+        {menuItems.map(item => (
+          <li key={item.id}>
+            {item.name} - ${item.price}
+            <button className='menu-btn' onClick={() => handleAddToCart(item)}>Add to cart</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+   
         {cart.length > 0 && (
           <>
+          <div className='cart'>
           <h2>Cart</h2>
-    <ul className='cart-list'>
-      {cart.map((item, index) => (
-        <li key={index} className='cart-list-item'>
-          {item.name} - ${item.price}
-          <button className='remove-btn'onClick={() => handleRemoveFromCart(item)}>Remove</button>
-        </li>
-      ))}
-    </ul>
-    <h3>Total:${totalCost}</h3>
+          <ul>
+        {cart.map(item => (
+          <li key={item.id}>
+            {item.name} - ${item.price} - Quantity : {item.quantity}
+            <button onClick={() => handleRemoveFromCart(item)}>Remove</button>
+          </li>
+        ))}
+      </ul>
+          </div>
+          
+
+    <h3>Total: ${totalCost}</h3>
+    <button className='checkout-btn' onClick={handleCheckout}>Checkout</button>
         </>
         )}
   </div>
