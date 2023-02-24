@@ -11,10 +11,10 @@ const MemberForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('Membership Submit Clicked');
-        console.log(name, email, dob);
         // If any of the fields are blank then alert user
         if (name === '' || email === '' || dob === '') {
             alert('Please fill out all fields');
+            return;
         }
         // POST request sent to API
         const response = await fetch('http://localhost:3001/membership', {
@@ -24,12 +24,10 @@ const MemberForm = () => {
             },
             body: JSON.stringify({name, email, dob}),
         });
+
         // If response is successful, then execute
         if(response.ok){
-            console.log('Response OKAY')
-            setName('');
-            setEmail('');
-            setDob('');
+            alert('Hello, ' + name + '. Your membership has been created.');
             window.location.reload();
         }
 
@@ -39,7 +37,7 @@ const MemberForm = () => {
         <div>
             <form onSubmit={handleSubmit}>
                 <h1>Member Sign Up Form</h1>
-                <label >Name</label>
+                <label>Name</label>
                 <input onChange={(e)=> setName(e.target.value)}/>
                 <label>Email</label>
                 <input onChange={(e)=> setEmail(e.target.value)}/>

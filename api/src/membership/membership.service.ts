@@ -1,19 +1,21 @@
-import { CreateMemberDto } from "src/dtos/create-member.dto";
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Member } from "src/entities/member.entity";
-//CRUD Create, Read, Update, Delete operations
-import {Injectable} from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from "mongoose";
+import { Member } from "./membership.interface";
+
+//CRUD Create, Read, Update, Delete opertations for Membership
 
 @Injectable()
 export class MembershipService {
-    //constructor
-    constructor(@InjectRepository(Member) 
-    private memberRepositpry: Repository<Member>,) {}
+    // Membership service constructor
+    constructor(){}
 
-    async create(createMemberDto: CreateMemberDto): Promise<Member> {
-        const member = this.memberRepositpry.create(createMemberDto);
-        return this.memberRepositpry.save(member);
+    // Create a new member
+    async create(member: Member): Promise<Member> {
+        console.log('Test from MembershipService: ');
+        console.log(member.dob);
+    
+        return;
     }
 
 }

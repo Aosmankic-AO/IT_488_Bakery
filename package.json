@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "@nestjs/common": "^9.3.9"
+  },
+  "devDependencies": {
+    "webpack-dev-middleware": "^6.0.1",
+    "webpack-hot-middleware": "^2.25.3"
   }
 }
