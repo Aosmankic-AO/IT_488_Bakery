@@ -2,18 +2,25 @@ import { Module, MiddlewareConsumer } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
-import { MembershipController } from './membership/membership.controller';
-import { MembershipService } from './membership/membership.service';
 import { CorsMiddleware } from './middleware/cors.middleware';
+import { MongooseModule } from '@nestjs/mongoose';
+import { MembershipModule } from './membership/membership.module';
+
+
+require('dotenv').config();
 
 @Module({
-  imports: [ConfigModule],
-  controllers: [AppController, MembershipController],
-  providers: [AppService, MembershipService],
+  imports: [ConfigModule, MembershipModule, MongooseModule.forRoot(process.env.MONGO_URI)],
+  controllers: [AppController],
+  providers: [AppService],
 })
 
+/**App Module Class */
 export class AppModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(CorsMiddleware).forRoutes('*')
+
+  //config Cors Middleware 
+  async configure(consumer: MiddlewareConsumer) {
+    consumer.apply(CorsMiddleware).forRoutes('*');
   }
+  
 }

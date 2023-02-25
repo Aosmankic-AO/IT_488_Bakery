@@ -16,14 +16,12 @@ import { MembershipService } from './membership.service';
 
 @Controller('/membership')
 export class  MembershipController {
-//Consturctor
+//Constructor
 constructor(private readonly membershipService: MembershipService) {}
 
-// Testing
+// Endpoint for creating a new member
 @Post()
 async create(@Body() createdMemberDto: Member): Promise<Member> {
-    console.log('Test from membership.controller: ');
-    console.log(createdMemberDto.name);
     return this.membershipService.create(createdMemberDto);
 }
 

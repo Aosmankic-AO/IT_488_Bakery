@@ -28,10 +28,11 @@ const Menu = () => {
     setCart(cart.filter(i => i !== item));
   };
 
+  /**Handling the checkout submission */
   const handleCheckout = async () => {
     console.log(cart)
     try {
-      const response = await fetch('http://localhost:3001/api/orders', {
+      const response = await fetch('http://localhost:3001/orders', {
           method: 'POST',
           body: JSON.stringify(cart.name),
           headers: { 'Content-Type': 'application/json' },
@@ -63,7 +64,6 @@ const Menu = () => {
         ))}
       </ul>
     </div>
-   
         {cart.length > 0 && (
           <>
           <div className='cart'>
@@ -77,8 +77,6 @@ const Menu = () => {
         ))}
       </ul>
           </div>
-          
-
     <h3>Total: ${totalCost}</h3>
     <button className='checkout-btn' onClick={handleCheckout}>Checkout</button>
         </>
