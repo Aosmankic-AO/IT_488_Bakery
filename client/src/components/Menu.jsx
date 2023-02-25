@@ -34,11 +34,12 @@ const Menu = () => {
     try {
       const response = await fetch('http://localhost:3001/orders', {
           method: 'POST',
-          body: JSON.stringify(cart.name),
+          body: JSON.stringify({items: cart, total: totalCost}),
           headers: { 'Content-Type': 'application/json' },
       });
-      const data = await response.json();
-      console.log(data);
+      await response.json();
+      alert('Thank you for your purchase! An email confirmation has been sent.');
+      window.location.reload();
   } catch (err) {
       console.error(err);
   }

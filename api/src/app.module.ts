@@ -5,12 +5,13 @@ import { ConfigModule } from '@nestjs/config';
 import { CorsMiddleware } from './middleware/cors.middleware';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MembershipModule } from './membership/membership.module';
+import { OrderModule } from './orders/order.module';
 
 
 require('dotenv').config();
 
 @Module({
-  imports: [ConfigModule, MembershipModule, MongooseModule.forRoot(process.env.MONGO_URI)],
+  imports: [ConfigModule, MembershipModule, OrderModule ,MongooseModule.forRoot(process.env.MONGO_URI)],
   controllers: [AppController],
   providers: [AppService],
 })
